@@ -39,7 +39,7 @@ class GroceryProductsSpider(scrapy.Spider):
         category_list = [c.get('displayName', {}).get('en') for c in obj_product.get('item', {}).get('primaryCategories', [])[0].get('hierarchy', [])]
         category_list.reverse()
         category = 'Grocery|%s' % ('|'.join([c for c in category_list]))
-        return {
+        yield {
             'store': 'walmart',
             'name': obj_entities_sku.get('name'),
             'barcodes': ','.join(bar_codes),
