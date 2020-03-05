@@ -5,6 +5,7 @@
 - Python 3
 
 ## Summary
+- We need to run Splash, it is already in docker-compose file so just run `docker-compose up -d`.
 - There are two spiders that need to run sequentially.
 ```
 scrapy crawl grocery_products
