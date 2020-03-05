@@ -21,7 +21,7 @@ class ProductBranchesSpider(scrapy.Spider):
     def parse(self, response):
         json_data = json.loads(response.body).get('info', [])
         req_branches = [b for b in json_data if str(b.get('id')) in self.settings['BRANCHES_TO_EXTRACT'].keys()]
-        if len(req_branches):
+        if len(req_branches) and req_branches[0].get('availabilityStatus') != 'NOT_SOLD':
             yield {
                 'branch': req_branches[0].get('id'),
                 'stock': req_branches[0].get('availableToSellQty'),
