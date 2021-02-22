@@ -1,4 +1,4 @@
-# Cornershop's backend integrations test
+# Walmart Scraping
 
 ## Requirements
 - Docker & Docker Compose
